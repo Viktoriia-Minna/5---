@@ -1,0 +1,164 @@
+:root {
+	--ink: #17221b;
+	--muted: #68756b;
+	--paper: #f6f5ee;
+	--panel: #fffef9;
+	--lime: #d8ed57;
+	--coral: #f36f5f;
+	--line: #d9ddd2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	color: var(--ink);
+	background: var(--paper);
+	font-family: "DM Sans", sans-serif;
+}
+
+body::before {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: radial-gradient(circle at 90% 8%, #e7f0ae 0, transparent 28%), linear-gradient(135deg, #f6f5ee 0%, #e9eee3 100%);
+	content: "";
+}
+
+.page-shell {
+	width: min(1060px, calc(100% - 40px));
+	margin: 0 auto;
+	padding: 72px 0 80px;
+}
+
+.page-header {
+	max-width: 680px;
+	margin-bottom: 56px;
+}
+}
+
+h1,
+h2 {
+	margin: 0;
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: 0;
+}
+
+h1 {
+	font-size: clamp(2.5rem, 7vw, 5.5rem);
+	line-height: 0.95;
+}
+
+.intro {
+	max-width: 470px;
+	margin: 20px 0 0;
+	color: var(--muted);
+	font-size: 1.05rem;
+	line-height: 1.6;
+}
+
+section {
+	padding: 34px 0;
+	border-top: 1px solid var(--line);
+}
+
+.section-heading {
+	margin-bottom: 22px;
+}
+
+h2 {
+	font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.game-panel,
+.chart-panel {
+	border: 1px solid var(--ink);
+	background: var(--panel);
+}
+
+.game-panel {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 24px;
+	padding: 28px;
+}
+
+.game-message {
+	grid-column: 1 / -1;
+	margin: 0;
+	color: var(--muted);
+}
+
+.key-display {
+	display: grid;
+	justify-items: center;
+	min-width: 156px;
+	padding: 20px 28px;
+	background: var(--lime);
+}
+
+.key-label {
+	margin-bottom: 8px;
+	color: var(--ink);
+	font-size: 0.65rem;
+}
+
+#key {
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 4rem;
+	line-height: 1;
+}
+
+.primary-button {
+	align-self: end;
+	min-height: 48px;
+	padding: 0 22px;
+	border: 1px solid var(--ink);
+	color: var(--ink);
+	background: transparent;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+	background: var(--ink);
+	color: var(--panel);
+}
+
+.chart-panel {
+	padding: 24px;
+}
+
+.chart-panel canvas {
+	width: 100% !important;
+	max-height: 390px;
+}
+
+@media (max-width: 600px) {
+	.page-shell {
+		width: min(100% - 28px, 1060px);
+		padding-top: 44px;
+	}
+
+	.game-panel {
+		grid-template-columns: 1fr;
+	}
+
+	.key-display {
+		justify-self: stretch;
+	}
+
+	.primary-button {
+		width: 100%;
+	}
+
+	.chart-panel {
+		padding: 12px 8px;
+	}
+}
